@@ -1,0 +1,37 @@
+-#= params[:splat]
+
+%table.table
+  %thead
+    %tr
+      %th File
+      %th Size
+  %tbody
+    -# Up
+    - if @current_path.present?
+      %tr
+        %td
+          %a.btn{:title => '..', :href => "/browse/#{@parent_path}"}
+            #{".."}
+        %td
+
+    -# List
+    - @files.each do |file|
+      %tr
+        %td
+          - url = "/browse/#{@current_path}#{URI::encode(File.basename(file))}"
+
+          - if file.extname == '.jpg'
+            -# Image
+            %a{:class => 'fancybox', :rel => "group", :title => file, :href => url}
+              = file.basename
+            -#- elsif file.extname == '.mp4'
+            -#  -# Video
+            -#  %video(width="320" height="240" controls)
+            -#    %source(src=url type="video/mp4")
+            -#    Your browser does not support the video tag.
+          - else
+            %a{:title => file, :href => url}
+              = file.basename
+        %td
+          - if file.file?
+            = file.size

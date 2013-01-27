@@ -1,0 +1,33 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %title fs_app
+      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %meta{:content => "", :name => "description"}
+      %meta{:content => "", :name => "author"}
+      = stylesheet_link_tag "bootstrap", "bootstrap-responsive", "jquery.fancybox", "jquery.fancybox-buttons"
+      = javascript_include_tag "jquery", "jquery-ujs", "bootstrap", "jquery.fancybox", "jquery.fancybox-buttons"
+      %link{:href => "/assets/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+      %script{:src => "/assets/application.js", :type => "text/javascript"}
+
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "/"} Project name
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active
+                %a{:href => "/browse/home/sa"} Home
+              %li
+                %a{:href => "/browse/media/sa/Data"} Data
+              %li
+                %a{:href => "/browse/media/truecrypt1"} XXX
+          / /.nav-collapse
+    .container
+      = yield
