@@ -8,7 +8,8 @@
       %meta{:content => "", :name => "author"}
       = stylesheet_link_tag "bootstrap", "bootstrap-responsive", "jquery.fancybox", "jquery.fancybox-buttons"
       = javascript_include_tag "jquery", "jquery-ujs", "bootstrap", "jquery.fancybox", "jquery.fancybox-buttons"
-      %link{:href => "/assets/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+      %link{:href => "/assets/application.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+      %link{:href => "/stylesheets/coderay.css", :rel => "stylesheet", :type => "text/css"}
       %script{:src => "/assets/application.js", :type => "text/javascript"}
 
   %body
@@ -19,15 +20,14 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "/"} Project name
-          .nav-collapse.collapse
-            %ul.nav
-              %li.active
-                %a{:href => "/browse/home/sa"} Home
-              %li
-                %a{:href => "/browse/media/sa/Data"} Data
-              %li
-                %a{:href => "/browse/media/truecrypt1"} XXX
-          / /.nav-collapse
+          %a.brand{:href => "/"} fs_app
+
+          %ul.nav
+            %li
+              %a{:href => "/browse/home/sa"} Home
+            %li
+              %a{:href => "/browse/media/Data"} Data
+            %li
+              %a{:href => "/browse/opt/Storage"} Storage
     .container
       = yield

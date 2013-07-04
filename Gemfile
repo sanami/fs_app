@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # Server requirements
 gem 'thin' # or mongrel
@@ -9,6 +9,8 @@ gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 
 # Component requirements
+gem 'coderay'
+gem 'rack-coderay', :require => "rack/coderay"
 gem 'sass'
 gem 'haml'
 

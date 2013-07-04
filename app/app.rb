@@ -1,6 +1,7 @@
 require 'pp'
 
 class FsApp < Padrino::Application
+  register CoderayInitializer
   register Padrino::Sprockets
   sprockets  # :url => 'assets', :root => app.root
 

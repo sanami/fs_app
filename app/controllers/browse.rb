@@ -30,9 +30,14 @@ FsApp.controllers :browse do
     else
       file = @path
 
-      mimetype = `file -b --mime-type "#{file}"`.gsub(/\n/,"")
-      puts "serving #{file} with mimetype #{mimetype}"
-      send_file file, :stream => true, :type => mimetype, :disposition => :inline
+      if file.extname == '.rb'
+        @code = CodeRay.scan(File.read(file), :ruby).html
+        render 'browse/code'
+      else
+        mimetype = `file -b --mime-type "#{file}"`.gsub(/\n/,"")
+        puts "serving #{file} with mimetype #{mimetype}"
+        send_file file, :stream => true, :type => mimetype, :disposition => :inline
+      end
     end
   end
 
